@@ -1,26 +1,81 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-omni-black: #050705;
+  --color-omni-slate: #0c120e;
+  --color-omni-green: #00ff41;
+  --color-omni-emerald: #10b981;
+  --color-omni-silver: #cbd5d1;
+  --color-omni-red: #ff3b3b;
+  --animate-omni-flash: omni-flash 1.2s ease-out forwards;
+  --animate-omni-pulse: omni-pulse 2.4s ease-in-out infinite;
+  --animate-omni-text: omni-text 2s ease-in-out infinite;
+  --animate-omni-fade-in: omni-fade-in 0.6s ease-out both;
+  --animate-omni-grow: omni-grow 1s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-omni-black);
+  color: #d1fae5;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Honeycomb tile: hexagons with shared edges, 28px wide by 48.5px tall. */
+.hex-grid {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='48.5' viewBox='0 0 28 48.5'%3E%3Cpath d='M0 8.08L14 0L28 8.08V24.25L14 32.33L0 24.25ZM14 32.33V48.5' fill='none' stroke='%2300ff41' stroke-opacity='0.12'/%3E%3C/svg%3E");
+  background-size: 28px 48.5px;
+}
+
+@keyframes omni-flash {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.95;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes omni-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 18px 2px rgba(0, 255, 65, 0.35), inset 0 0 18px rgba(0, 255, 65, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 42px 8px rgba(0, 255, 65, 0.6), inset 0 0 32px rgba(0, 255, 65, 0.45);
+  }
+}
+
+@keyframes omni-text {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes omni-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes omni-grow {
+  from {
+    width: 0;
+  }
+  to {
+    width: var(--potency);
+  }
 }
