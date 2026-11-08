@@ -15,7 +15,7 @@ export function StandbyScreen({ phase, rotation, onActivate }: Props) {
 
   return (
     <section className="relative z-10 flex min-h-screen flex-col items-center justify-center gap-10 px-6">
-      <p className="animate-omni-text text-center font-mono text-xs tracking-[0.3em] text-emerald-400 sm:text-sm">
+      <p className="animate-omni-text text-center font-mono text-xs tracking-[1em] text-emerald-4000 sm:text-sm">
         {initializing
           ? "[ SYSTEM INITIALIZING // STAND BY ]"
           : "[ Yasith Samarakoon Portfolio ]"}
